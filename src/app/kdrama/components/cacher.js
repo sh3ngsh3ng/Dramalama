@@ -4,7 +4,7 @@
 export async function PreFetchVideoLinks(data, dramaId) {
 	try {
 		const fetchPromises = data.map(async (element) => {
-			const link = `https://consumet-jade.vercel.app/movies/dramacool/watch?episodeId=${element.id}&mediaId=${dramaId}`;
+			const link = `${process.env.API_BASE_URL}/movies/dramacool/watch?episodeId=${element.id}&mediaId=${dramaId}`;
 			await fetch(link, { cache: "force-cache" });
 		});
 
@@ -18,7 +18,7 @@ export async function PreFetchVideoLinks(data, dramaId) {
 export async function PreFetchAnimeInfo(data) {
 	try {
 		const fetchPromises = data.results.map(async (element) => {
-			const link = `https://consumet-jade.vercel.app/movies/dramacool/info?id=${element.id}`;
+			const link = `${process.env.API_BASE_URL}/movies/dramacool/info?id=${element.id}`;
 			await fetch(link, { next: { revalidate: 86400 } });
 		});
 

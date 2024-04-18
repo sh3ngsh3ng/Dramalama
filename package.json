@@ -14,6 +14,7 @@
     "@vercel/speed-insights": "^1.0.10",
     "@vidstack/react": "^1.10.9",
     "child_process": "^1.0.2",
+    "dotenv": "^16.4.5",
     "media-icons": "^1.1.2",
     "next": "^14.1.4",
     "react": "^18.2.0",

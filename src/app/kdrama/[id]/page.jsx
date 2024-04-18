@@ -62,7 +62,7 @@ export default async function DramaInfo({ params }) {
 
 async function getDramaInfo(id) {
 	const res = await fetch(
-		`https://consumet-jade.vercel.app/movies/dramacool/info?id=${id}`,
+		`${process.env.API_BASE_URL}/movies/dramacool/info?id=${id}`,
 		{ next: { revalidate: 86400 } }
 	);
 	const data = await res.json();

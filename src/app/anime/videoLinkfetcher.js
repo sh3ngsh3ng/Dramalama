@@ -2,7 +2,7 @@
 export async function fetch_video_link(id) {
 	try {
 		const res = await fetch(
-			`https://consumet-jade.vercel.app/anime/gogoanime/watch/${id}`,
+			`${process.env.API_BASE_URL}/anime/gogoanime/watch/${id}`,
 			{ cache: "force-cache" }
 		);
 		const data = await res.json();
@@ -20,7 +20,7 @@ export async function preFetchAnimeLinks(data, n = 40) {
 		const fetchPromises = [];
 		for (let i = 0; i < limit; i++) {
 			const element = data.episodes[i];
-			const link = `https://consumet-jade.vercel.app/anime/gogoanime/watch/${element.id}`;
+			const link = `${process.env.API_BASE_URL}/anime/gogoanime/watch/${element.id}`;
 			fetchPromises.push(fetch(link, { cache: "force-cache" }));
 		}
 

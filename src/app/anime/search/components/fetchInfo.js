@@ -6,7 +6,7 @@ export default async function Results(id) {
 
 async function testFunction(title) {
 	const res = await fetch(
-		"https://consumet-jade.vercel.app/anime/gogoanime/" + title,
+		`${process.env.API_BASE_URL}/anime/gogoanime/` + title,
 		{ cache: "force-cache" }
 	);
 	const data = await res.json();

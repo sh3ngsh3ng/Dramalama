@@ -41,7 +41,7 @@ export default async function Releases() {
 
 async function fetchRecentEpisodes() {
 	const res = await fetch(
-		"https://consumet-jade.vercel.app/anime/gogoanime/recent-episodes",
+		`${process.env.API_BASE_URL}/anime/gogoanime/recent-episodes`,
 		{ next: { revalidate: 86400 } }
 	);
 	const data = res.json();
